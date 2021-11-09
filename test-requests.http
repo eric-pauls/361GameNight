@@ -1,21 +1,21 @@
 ###
-PUT http://localhost:7777/users/joe HTTP/1.1
+PUT http://localhost:7777/users/hhhhhh HTTP/1.1
 content-type: application/json
 
 {"players": 
 [{
-    "name": "joe",
-    "amount": 50,
+    "name": "hi",
+    "total": 50,
     "id": 2,
     "dealer": false
 }, {
     "name": "larry",
-    "amount": 100
+    "total": 100
 }
 ]}
 
 ###
-GET http://localhost:7777/users/joe HTTP/1.1
+GET http://localhost:7777/users/larry HTTP/1.1
 
 
 ###

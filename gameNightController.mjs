@@ -22,7 +22,7 @@ app.put("/users/:_id", (req, res) => {
   const players = req.body.players;
   let promises = [];
   players.forEach((player) => {
-    let promise = userFuncs.updateUser(player.name, player.amount);
+    let promise = userFuncs.updateUser(player.name, player.total);
     promises.push(promise);
   });
   //promises [] is a array of pormises that i want to execute and resolve

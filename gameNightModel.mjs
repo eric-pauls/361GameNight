@@ -8,19 +8,19 @@ mongoose.connect("mongodb://localhost:27017/users", {
 const db = mongoose.connection;
 
 db.once("open", () => {
-  console.log("Successfully connected to MongoDB using Mongoose!");
+  console.log("Successfully connected to MongoDB using Mongoose");
 });
 
-// define user schema
+// define user schema!
 const userSchema = mongoose.Schema({
   _id: { type: String, required: true },
-  amount: { type: Number, required: true },
+  total: { type: Number, required: true },
 });
 //compile model from the schema
 const User = mongoose.model("User", userSchema);
 
-const createUser = async (name, amount) => {
-  const newUser = new User({ _id: name, amount: amount });
+const createUser = async (name, total) => {
+  const newUser = new User({ _id: name, total: total });
   return newUser.save();
 };
 
@@ -37,7 +37,7 @@ const findUserBy_id = async (_id) => {
 const updateUser = async function (_id, temp) {
   const result = await User.updateOne(
     { _id: _id },
-    { $inc: { amount: temp } },
+    { $inc: { total: temp } },
     { upsert: true }
   );
   return result;
